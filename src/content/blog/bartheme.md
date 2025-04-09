@@ -42,4 +42,4 @@ Un branding immersif et impactant, reflétant à la fois l’univers de l’esca
 
 🎨 **Outils utilisés** : Illustrator, Photoshop & Figma.
 
-![Mockup du projet](../images_projets/bartheme/desktop_prototype.png)
+![Mockup du projet](/images_projets/bartheme/desktop_prototype.png)
