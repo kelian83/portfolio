@@ -40,6 +40,6 @@ Un branding immersif et impactant, reflétant à la fois l’univers de l’esca
 
 📌 **Compétences développées** : Direction artistique, branding, UI/UX, gestion de projet.
 
-🎨 **Outils utilisés** : Illustrator, Photoshop, Figma.
+🎨 **Outils utilisés** : Illustrator, Photoshop & Figma.
 
 ![Mockup du projet](../images_projets/bartheme/desktop_prototype.png)
