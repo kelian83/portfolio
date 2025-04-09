@@ -13,7 +13,7 @@ const posts = (await getCollection('blog')).sort(
 		<ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl">
 			{posts.map(post => (
 				<li class="bg-white shadow-md rounded-lg overflow-hidden">
-					<a href={`/blog/${post.id}/`} class="block text-gray-800 hover:text-gray-600">
+					<a href={`/portfolio/blog/${post.id}/`} class="block text-gray-800 hover:text-gray-600">
 						<img class="w-full h-auto" src={post.data.heroImage} alt="" />
 						<div class="p-4">
 							<h4 class="text-lg font-semibold mb-2">{post.data.title}</h4>

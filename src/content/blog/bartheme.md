@@ -2,7 +2,7 @@
 title: "MODUL:8 - Identité Visuelle et Stratégie de Communication"
 description: "Projet de conception d'une identité visuelle immersive pour un bar à thème berlinois."
 pubDate: "2025-03-28"
-heroImage: "src/assets/images_projets/bartheme/modul8_logo.png"
+heroImage: "../assets/images_projets/bartheme/modul8_logo.png"
 tags: ["Graphisme", "UI/UX design"]
 ---
 
