@@ -6,11 +6,16 @@ const navItems = [
 ];
 ---
 
-<nav class="bg-white text-black p-4">
-    <ul class="flex justify-end space-x-4">
+<nav class="bg-white text-black py-6">
+    <ul class="flex justify-center space-x-8 max-w-3xl mx-auto">
         {navItems.map(item => (
             <li>
-                <a href={item.href} class="hover:text-gray-700">{item.name}</a>
+                <a 
+                  href={item.href} 
+                  class="text-gray-800 hover:text-green-600 transition-colors duration-300 text-sm uppercase tracking-wider font-medium"
+                >
+                  {item.name}
+                </a>
             </li>
         ))}
     </ul>
