@@ -5,40 +5,69 @@ import profileImage from '../assets/profile.jpeg';
 ---
 
 <BasicLayout title="Home">
-	<div class="flex items-center justify-between h-64 bg-gray-100 p-8">
-		<div>
-			<h1 class="text-6xl font-bold">Kelian Cazeneuve</h1>
-			<h2 class="text-4xl mt-2">Étudiant en BUT MMI</h2>
-		</div>
-		<div>
-			<img src={profileImage.src} alt="Kelian Cazeneuve" class="h-48 w-48 object-cover rounded-full">
-		</div>
-	</div>
-	<div class="mt-8 text-center">
-		<h2 class="text-3xl mb-4 text-green-950 font-bold">À propos de moi</h2>
-		<p class="text-gray-800 text-2xl">Je suis un étudiant en BUT MMI passionné par le développement web et le design graphique.</p>
-	</div>
-	<div class="mt-8 text-center bg-gray-100">
-		<h2 class="text-3xl mb-4 text-green-950 font-bold">Mes compétences</h2>
-		<ul class="list-none text-2xl text-gray-800">
-			<li class="font-bold mb-2">Front-end</li>
-			<ul class="text-gray-600 mb-4 flex justify-center gap-3">
-				<li>HTML</li>
-				<li>CSS</li>
-				<li>JavaScript</li>
-			</ul>
-			<li class="font-bold mb-2">Design</li>
-			<ul class="text-gray-600 mb-4 flex justify-center gap-3">
-				<li>Photoshop</li>
-				<li>Illustrator</li>
-				<li>Figma</li>
-			</ul>
-			<li class="font-bold mb-2">Audiovisuel</li>
-			<ul class="text-gray-600 flex justify-center gap-3">
-				<li>Premiere Pro</li>
-				<li>After Effects</li>
-				<li>Blender</li>
-			</ul>
-		</ul>
-	</div>
+	<main class="max-w-3xl mx-auto py-10 px-4">
+		<!-- Header section -->
+		<section class="flex flex-col md:flex-row items-center justify-between gap-8 mb-16">
+			<div>
+				<h1 class="text-4xl font-bold text-gray-800">Kelian Cazeneuve</h1>
+				<h2 class="text-xl mt-2 text-green-700">Étudiant en BUT MMI</h2>
+			</div>
+			<Image 
+				src={profileImage} 
+				alt="Kelian Cazeneuve" 
+				class="h-32 w-32 object-cover rounded-full border-2 border-green-600" 
+				width={128}
+				height={128}
+			/>
+		</section>
+		
+		<!-- About section -->
+		<section class="mb-16">
+			<h2 class="text-2xl mb-3 text-green-800 font-medium border-b border-green-200 pb-2">À propos</h2>
+			<p class="text-gray-700">Je suis un étudiant en BUT MMI passionné par le développement web et le design graphique.</p>
+		</section>
+		
+		<!-- Skills section -->
+		<section>
+			<h2 class="text-2xl mb-6 text-green-800 font-medium border-b border-green-200 pb-2">Compétences</h2>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				<!-- Frontend -->
+				<div>
+					<h3 class="font-bold mb-2 text-green-700">Front-end</h3>
+					<div class="text-gray-600 space-x-2">
+						<span>HTML</span>
+						<span>•</span>
+						<span>CSS</span>
+						<span>•</span>
+						<span>JavaScript</span>
+					</div>
+				</div>
+				
+				<!-- Design -->
+				<div>
+					<h3 class="font-bold mb-2 text-green-700">Design</h3>
+					<div class="text-gray-600 space-x-2">
+						<span>Photoshop</span>
+						<span>•</span>
+						<span>Illustrator</span>
+						<span>•</span>
+						<span>Figma</span>
+					</div>
+				</div>
+				
+				<!-- Audiovisual -->
+				<div>
+					<h3 class="font-bold mb-2 text-green-700">Audiovisuel</h3>
+					<div class="text-gray-600 space-x-2">
+						<span>Premiere Pro</span>
+						<span>•</span>
+						<span>After Effects</span>
+						<span>•</span>
+						<span>Blender</span>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
 </BasicLayout>
