@@ -4,70 +4,192 @@ import { Image } from 'astro:assets';
 import profileImage from '../assets/profile.jpeg';
 ---
 
-<BasicLayout title="Home">
-	<main class="max-w-3xl mx-auto py-10 px-4">
-		<!-- Section header -->
-		<section class="flex flex-col md:flex-row items-center justify-between gap-8 mb-16">
-			<div>
-				<h1 class="text-4xl font-bold text-gray-800">Kelian Cazeneuve</h1>
-				<h2 class="text-xl mt-2 text-green-700">Étudiant en BUT MMI</h2>
+<BasicLayout title="Accueil">
+	<main class="mx-auto max-w-4xl px-4 py-14">
+		<!-- Hero / Intro -->
+		<section class="relative overflow-hidden rounded-2xl border border-green-200/60 bg-gradient-to-br from-green-50 via-white to-emerald-50 p-8 md:p-10 mb-20">
+			<div class="pointer-events-none absolute inset-0 [background:radial-gradient(circle_at_80%_20%,rgba(16,185,129,.18),transparent_60%)]"></div>
+			<div class="flex flex-col-reverse items-start gap-10 md:flex-row md:items-center">
+				<div class="relative z-10">
+					<h1 class="text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl">
+						Kelian Cazeneuve
+					</h1>
+					<p class="mt-3 text-xl font-medium text-emerald-700">
+						Créateur d’expériences visuelles & interactives
+					</p>
+					<p class="mt-5 max-w-xl text-gray-600 leading-relaxed">
+						Étudiant en 3ᵉ année de BUT MMI. Je conçois des interfaces, des univers 3D et des contenus audiovisuels qui unissent esthétique, clarté et immersion. En recherche d’un stage dès février 2025 pour renforcer une équipe créative.
+					</p>
+					<div class="mt-8 flex flex-wrap gap-4">
+						<a href="/projets" class="group inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+							<span>Voir mes projets</span>
+							<svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+							</svg>
+						</a>
+						<a href="/cv" class="inline-flex items-center gap-2 rounded-full border border-emerald-300/70 bg-white px-6 py-3 text-sm font-semibold text-emerald-700 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+							<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M7 4h10l3 4v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" />
+								<path stroke-linecap="round" stroke-linejoin="round" d="M11 10h5M11 14h5" />
+							</svg>
+							<span>Mon CV</span>
+						</a>
+					</div>
+				</div>
+				<div class="relative mx-auto shrink-0">
+					<div class="relative">
+						<Image
+							src={profileImage}
+							alt="Photo de profil de Kelian Cazeneuve"
+							class="h-40 w-40 md:h-48 md:w-48 rounded-full object-cover ring-4 ring-white shadow-lg border border-emerald-200"
+							width={192}
+							height={192}
+							loading="eager"
+						/>
+						<span class="absolute -bottom-2 -right-2 inline-flex items-center gap-1 rounded-full bg-emerald-600 px-3 py-1 text-xs font-medium text-white shadow">
+							Disponible stage
+							<span class="relative flex h-2 w-2">
+								<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/70"></span>
+								<span class="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+							</span>
+						</span>
+					</div>
+				</div>
 			</div>
-			<Image 
-				src={profileImage} 
-				alt="Kelian Cazeneuve" 
-				class="h-32 w-32 object-cover rounded-full border-2 border-green-600" 
-				width={128}
-				height={128}
-			/>
+			<div class="absolute inset-x-10 -bottom-6 h-12 rounded-full bg-gradient-to-r from-emerald-400/10 via-emerald-600/10 to-emerald-400/10 blur-2xl"></div>
 		</section>
-		
-		<!-- La section "à propos de moi" -->
-		<section class="mb-16">
-			<h2 class="text-2xl mb-3 text-green-800 font-medium border-b border-green-200 pb-2">À propos</h2>
-			<p class="text-gray-700">Je suis un étudiant en BUT MMI passionné par le développement web et le design graphique.</p>
+
+		<!-- About -->
+		<section class="mb-20 fade-in" data-delay="0">
+			<header class="mb-6 flex items-center gap-3">
+				<div class="h-8 w-1 rounded bg-emerald-600"></div>
+				<h2 class="text-2xl font-semibold text-gray-900">À propos</h2>
+			</header>
+			<div class="prose max-w-none prose-emerald">
+				<p class="text-gray-700 leading-relaxed">
+					Curieux et méthodique, je construis des parcours utilisateurs fluides tout en apportant une dimension narrative et visuelle forte. Mon approche : observer, tester, affiner. J’apprécie particulièrement les projets où design, code et motion collaborent pour raconter quelque chose.
+				</p>
+				<p class="mt-4 text-gray-700 leading-relaxed">
+					Objectif 2025 : intégrer une équipe où je peux contribuer à des interfaces actives, des expériences immersives et des identités visuelles cohérentes, tout en progressant sur les pipelines UI → motion → intégration.
+				</p>
+			</div>
 		</section>
-		
-		<!-- Les compétences -->
-		<section>
-			<h2 class="text-2xl mb-6 text-green-800 font-medium border-b border-green-200 pb-2">Compétences</h2>
-			
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-				<!-- Frontend -->
-				<div>
-					<h3 class="font-bold mb-2 text-green-700">Front-end</h3>
-					<div class="text-gray-600 space-x-2">
-						<span>HTML</span>
-						<span>•</span>
-						<span>CSS</span>
-						<span>•</span>
-						<span>JavaScript</span>
-					</div>
+
+		<!-- Skills -->
+		<section class="mb-20 fade-in" data-delay="100">
+			<header class="mb-8 flex items-center gap-3">
+				<div class="h-8 w-1 rounded bg-emerald-600"></div>
+				<h2 class="text-2xl font-semibold text-gray-900">Compétences & Outils</h2>
+			</header>
+			<div class="grid gap-8 md:grid-cols-3">
+				<div class="group rounded-xl border border-emerald-100/60 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+					<h3 class="mb-3 flex items-center gap-2 font-semibold text-emerald-700">
+						<span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+						Front-end
+					</h3>
+					<ul class="flex flex-wrap gap-2">
+						{['HTML','CSS','JavaScript','Accessibilité','Performance'].map(item => (
+							<li class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200/70">{item}</li>
+						))}
+					</ul>
 				</div>
-				
-				<!-- Design -->
-				<div>
-					<h3 class="font-bold mb-2 text-green-700">Design</h3>
-					<div class="text-gray-600 space-x-2">
-						<span>Photoshop</span>
-						<span>•</span>
-						<span>Illustrator</span>
-						<span>•</span>
-						<span>Figma</span>
-					</div>
+				<div class="group rounded-xl border border-emerald-100/60 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+					<h3 class="mb-3 flex items-center gap-2 font-semibold text-emerald-700">
+						<span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+						Design & UI
+					</h3>
+					<ul class="flex flex-wrap gap-2">
+						{['Figma','Photoshop','Illustrator','Typographie','Design System'].map(item => (
+							<li class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200/70">{item}</li>
+						))}
+					</ul>
 				</div>
-				
-				<!-- Audiovisuel -->
-				<div>
-					<h3 class="font-bold mb-2 text-green-700">Audiovisuel</h3>
-					<div class="text-gray-600 space-x-2">
-						<span>Premiere Pro</span>
-						<span>•</span>
-						<span>After Effects</span>
-						<span>•</span>
-						<span>Blender</span>
-					</div>
+				<div class="group rounded-xl border border-emerald-100/60 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+					<h3 class="mb-3 flex items-center gap-2 font-semibold text-emerald-700">
+						<span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+						Audiovisuel & 3D
+					</h3>
+					<ul class="flex flex-wrap gap-2">
+						{['Premiere Pro','After Effects','Blender','Storyboard','Motion'].map(item => (
+							<li class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200/70">{item}</li>
+						))}
+					</ul>
 				</div>
+			</div>
+		</section>
+
+		<!-- Mini teaser Projets -->
+		<section class="mb-16 fade-in" data-delay="150">
+			<header class="mb-6 flex items-center justify-between">
+				<h2 class="text-2xl font-semibold text-gray-900">Aperçu de projets</h2>
+				<a href="/projets" class="text-sm font-medium text-emerald-700 hover:underline inline-flex items-center gap-1">
+					Tout voir
+					<svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+					</svg>
+				</a>
+			</header>
+			<div class="grid gap-6 md:grid-cols-3">
+				{[
+					{titre:'Refonte interface', tag:'UI/UX'},
+					{titre:'Animation identité', tag:'Motion'},
+					{titre:'Scène 3D immersive', tag:'Blender'}
+				].map(card => (
+					<a href="/projets" class="group relative overflow-hidden rounded-xl border border-emerald-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+						<div class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-emerald-500/10 to-emerald-600/20 transition"></div>
+						<p class="text-sm font-medium text-emerald-600">{card.tag}</p>
+						<h3 class="mt-2 font-semibold text-gray-800 group-hover:text-emerald-700">{card.titre}</h3>
+						<span class="mt-4 inline-flex items-center gap-1 text-xs font-medium text-emerald-700">
+							Voir
+							<svg class="h-3 w-3 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+							</svg>
+						</span>
+					</a>
+				))}
+			</div>
+		</section>
+
+		<!-- CTA final -->
+		<section class="relative overflow-hidden rounded-2xl border border-emerald-200/70 bg-white p-10 text-center fade-in" data-delay="200">
+			<div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(16,185,129,0.15),transparent_60%)]"></div>
+			<h2 class="text-2xl font-bold tracking-tight text-gray-900">Intéressé pour collaborer ?</h2>
+			<p class="mx-auto mt-4 max-w-2xl text-gray-600">
+				Discutons d’un besoin, d’une idée ou d’une expérimentation créative. Je peux apporter une approche mêlant design, motion et prototypage.
+			</p>
+			<div class="mt-8 flex flex-wrap justify-center gap-4">
+				<a href="/projets" class="group inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-700">
+					Mes projets
+					<svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+					</svg>
+				</a>
+				<a href="/cv" class="inline-flex items-center gap-2 rounded-full border border-emerald-300 bg-white px-6 py-3 text-sm font-semibold text-emerald-700 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-500 hover:bg-emerald-50">
+					Mon CV
+				</a>
+				<a href="mailto:contact@example.com" class="inline-flex items-center gap-2 rounded-full border border-transparent bg-emerald-50 px-6 py-3 text-sm font-semibold text-emerald-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-100">
+					Me contacter
+				</a>
 			</div>
 		</section>
 	</main>
+
+	<!-- Simple fade-in on scroll -->
+	<script>
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(e => {
+				if (e.isIntersecting) {
+					e.target.classList.add('opacity-100','translate-y-0');
+					observer.unobserve(e.target);
+				}
+			});
+		}, { threshold: 0.15 });
+
+		document.querySelectorAll('.fade-in').forEach((el) => {
+			el.style.transition = 'opacity .7s ease, transform .7s ease';
+			el.style.transitionDelay = (el.dataset.delay || 0) + 'ms';
+			el.classList.add('opacity-0','translate-y-6');
+			observer.observe(el);
+		});
+	</script>
 </BasicLayout>
