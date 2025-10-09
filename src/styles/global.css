@@ -3,37 +3,6 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/*
-    Fond global inspiré de "CV Pro.jpg" : grands dégradés radiaux pastels,
-    non intrusifs, fixés derrière le contenu. Utilise un pseudo-élément pour
-    préserver la structure DOM et permettre des effets doux.
-*/
-html, body {
-    height: 100%;
-}
-
-body {
-    background-color: #ffffff;
-    /* Évite que des z-index externes recouvrent le pseudo-élément négatif */
-    isolation: isolate;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    /* Empilement de taches radiales façon halo pastel */
-    background:
-        radial-gradient(680px 680px at 14% 22%, rgba(236, 72, 153, 0.26), transparent 58%), /* rose en haut-gauche */
-        radial-gradient(560px 560px at 20% 55%, rgba(251, 146, 60, 0.16), transparent 60%),   /* orange doux au centre-gauche */
-        radial-gradient(640px 640px at 86% 74%, rgba(59, 130, 246, 0.25), transparent 58%);   /* bleu en bas-droite */
-    /* Lissage doux (modéré pour perf) */
-    filter: blur(20px);
-    transform: translateZ(0);
-}
-
 @layer components {
     .prose {
         h1 {
