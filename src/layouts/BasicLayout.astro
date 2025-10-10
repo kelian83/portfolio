@@ -1,7 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 const {title} = Astro.props;
 import "../styles/global.css";
 ---
@@ -15,8 +15,8 @@ import "../styles/global.css";
     <title>{title}</title>
   </head>
   <body>
-	<Nav />
-    <ViewTransitions><slot /></ViewTransitions>
+  <Nav />
+    <ClientRouter><slot /></ClientRouter>
     <Footer />
   </body>
 </html>
