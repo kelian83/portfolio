@@ -12,53 +12,30 @@ const tags: string[] = Array.from(new Set(posts.flatMap((p) => p.data.tags ?? []
 ---
 
 <BasicLayout title="Projets">
-	<!-- Barre de filtres -->
+	<!-- Barre de filtres (catégories uniquement) -->
 	<section class="mb-8">
-		<div class="mx-auto max-w-4xl rounded-xl border border-emerald-200/60 bg-white/70 supports-[backdrop-filter]:bg-white/40 backdrop-blur-md shadow-sm">
+		<div class="mx-auto max-w-4xl overflow-hidden rounded-xl border border-emerald-200/60 bg-white/70 supports-[backdrop-filter]:bg-white/40 backdrop-blur-md shadow-sm">
 			<div class="p-4 md:p-5">
-				<div class="grid gap-4 md:grid-cols-3">
-					<!-- Recherche -->
-					<div>
-						<label for="search" class="block text-xs font-medium text-emerald-800 mb-1">Recherche</label>
-						<input id="search" type="search" placeholder="Titre, description, tag…" class="w-full rounded-lg border border-emerald-200/70 bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-emerald-500" />
-					</div>
-					<!-- Date de début -->
-					<div>
-						<label for="from" class="block text-xs font-medium text-emerald-800 mb-1">Depuis</label>
-						<input id="from" type="date" class="w-full rounded-lg border border-emerald-200/70 bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-emerald-500" />
-					</div>
-					<!-- Date de fin -->
-					<div>
-						<label for="to" class="block text-xs font-medium text-emerald-800 mb-1">Jusqu’au</label>
-						<input id="to" type="date" class="w-full rounded-lg border border-emerald-200/70 bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-emerald-500" />
-					</div>
+				<div class="flex items-center justify-between gap-4">
+					<h2 class="text-sm font-semibold text-emerald-800 tracking-wide uppercase">Filtrer par catégories</h2>
+					<p id="resultCount" class="text-xs text-emerald-800" aria-live="polite"></p>
 				</div>
-
-				<!-- Tags / catégories -->
 				{tags.length > 0 && (
-					<div class="mt-4 border-t border-emerald-100/70 pt-4">
-						<p class="text-xs font-medium text-emerald-800 mb-2">Catégories</p>
+					<div class="mt-4">
 						<div id="tags" class="flex flex-wrap gap-2">
+							<button id="tag-all" type="button" class="tag-btn rounded-full border border-emerald-300 bg-white px-3 py-1 text-xs font-medium text-emerald-700 hover:bg-emerald-50 data-[active=true]:bg-emerald-600 data-[active=true]:text-white data-[active=true]:border-emerald-600 transition" data-tag="*" data-active="true">Tous</button>
 							{tags.map((t) => (
 								<button type="button" class="tag-btn rounded-full border border-emerald-200/70 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 hover:bg-emerald-100 data-[active=true]:bg-emerald-600 data-[active=true]:text-white data-[active=true]:border-emerald-600 transition" data-tag={t}>{t}</button>
 							))}
 						</div>
 					</div>
 				)}
-
-				<!-- Actions -->
-				<div class="mt-4 flex items-center justify-between">
-					<p id="resultCount" class="text-xs text-emerald-800" aria-live="polite"></p>
-					<div class="flex items-center gap-2">
-						<button id="clear" type="button" class="rounded-full border border-emerald-300 bg-white px-3 py-1.5 text-xs font-medium text-emerald-700 hover:bg-emerald-50">Réinitialiser</button>
-					</div>
-				</div>
 			</div>
 		</div>
 	</section>
 
 	<section class="flex justify-center">
-		<ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl">
+		<ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl" data-posts>
 			{posts.map((post) => (
 				<li class="bg-white shadow-md rounded-lg overflow-hidden" data-title={post.data.title} data-desc={post.data.description} data-tags={(post.data.tags ?? []).join('|')} data-date={post.data.pubDate.toISOString()}>
 					<a href={`/portfolio/blog/${post.id}/`} class="block text-gray-800 hover:text-gray-600">
@@ -85,42 +62,23 @@ const tags: string[] = Array.from(new Set(posts.flatMap((p) => p.data.tags ?? []
 
 	<script>
 		// @ts-nocheck
-		// Petite logique de filtrage côté client, sans dépendance externe
+		// Filtre par catégories uniquement
 		const $ = (sel, root=document) => root.querySelector(sel);
 		const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
-		const state = { q: '', tags: new Set(), from: '', to: '' };
-		const listItems = $$('#root ul li, ul li'); // tolérant à une éventuelle modif de wrapper
+		const container = document.querySelector('[data-posts]');
+		const listItems = container ? Array.from(container.children) : [];
 		const tagButtons = $$('#tags .tag-btn');
+		const allBtn = $('#tag-all');
 
-		const normalize = (s='') => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-		const inRange = (iso, from, to) => {
-			if (!iso) return true;
-			const d = new Date(iso).getTime();
-			if (from) { const f = new Date(from + 'T00:00:00').getTime(); if (d < f) return false; }
-			if (to)   { const t = new Date(to   + 'T23:59:59').getTime(); if (d > t) return false; }
-			return true;
-		};
+		const state = { tags: new Set() };
 
 		function applyFilter() {
 			let visible = 0;
 			for (const li of listItems) {
-				const title = li.dataset.title || '';
-				const desc  = li.dataset.desc  || '';
-				const tags  = (li.dataset.tags || '').split('|').filter(Boolean);
-				const date  = li.dataset.date || '';
-
-				// Recherche plein‑texte simple (titre + description + tags)
-				const hay = normalize([title, desc, tags.join(' ')].join(' '));
-				const okSearch = !state.q || hay.includes(normalize(state.q));
-
-				// Tags: au moins un tag sélectionné doit matcher (OU). Si aucun tag sélectionné, on laisse passer.
+				const tags = (li.dataset.tags || '').split('|').filter(Boolean);
 				const okTags = state.tags.size === 0 || tags.some(t => state.tags.has(t));
-
-				// Dates
-				const okDate = inRange(date, state.from, state.to);
-
-				const show = okSearch && okTags && okDate;
+				const show = okTags;
 				li.classList.toggle('hidden', !show);
 				if (show) visible++;
 			}
@@ -128,32 +86,30 @@ const tags: string[] = Array.from(new Set(posts.flatMap((p) => p.data.tags ?? []
 			if (res) res.textContent = visible === 0 ? 'Aucun résultat' : `${visible} projet${visible>1?'s':''}`;
 		}
 
-		// Events
-		const search = $('#search');
-		const from   = $('#from');
-		const to     = $('#to');
-		const clear  = $('#clear');
-		if (search) search.addEventListener('input', (e) => { state.q = e.target.value; applyFilter(); });
-		if (from)   from.addEventListener('change', (e) => { state.from = e.target.value; applyFilter(); });
-		if (to)       to.addEventListener('change',   (e) => { state.to   = e.target.value; applyFilter(); });
-		if (clear)  clear.addEventListener('click', () => {
-			state.q=''; state.tags.clear(); state.from=''; state.to='';
-			if (search) search.value=''; if (from) from.value=''; if (to) to.value='';
+		function clearAll() {
+			state.tags.clear();
 			for (const b of tagButtons) b.dataset.active = 'false';
+			if (allBtn) allBtn.dataset.active = 'true';
 			applyFilter();
-		});
+		}
 
+		// Toggle des tags
 		for (const btn of tagButtons) {
+			if (btn.dataset.tag === '*') continue; // le bouton "Tous" a sa logique propre
 			btn.addEventListener('click', () => {
+				if (allBtn) allBtn.dataset.active = 'false';
 				const t = btn.dataset.tag;
 				const isActive = btn.dataset.active === 'true';
 				if (isActive) { state.tags.delete(t); btn.dataset.active = 'false'; }
 				else { state.tags.add(t); btn.dataset.active = 'true'; }
+				if (state.tags.size === 0) { if (allBtn) allBtn.dataset.active = 'true'; }
 				applyFilter();
 			});
 		}
 
-		// Initialisation
-		applyFilter();
+		if (allBtn) allBtn.addEventListener('click', clearAll);
+
+		// Init
+		clearAll();
 	</script>
 </BasicLayout>
