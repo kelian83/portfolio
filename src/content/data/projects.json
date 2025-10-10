@@ -1,20 +1,20 @@
 [
     {
         "title": "DataVisualisation",
-        "description": "Durant ce projet en groupe, nous avons créer à l'aide de plugin Figma ainsi que des codes Web, nous avons créer un site avec des datas visualisations des données concernant les jeunes et l'influences des médias",
-        "image": "/src/assets/images_projets/datavisualisation.jpg",
+        "description": "Durant ce projet en groupe, nous avons créé un site avec des datavisualisations sur les jeunes et l’influence des médias.",
+        "image": "/portfolio/images_projets/sae303/datavisualisation.jpg",
         "link": "https://nath-dejean.github.io/SAe3Crea03-main/"
     },
     {
-        "title": "Bar à theme",
-        "description": "Nous avons du réaliser un bar à theme",
-        "image": "/src/assets/images_projets/test.jpg",
-        "link": "#"
+        "title": "Bar à thème",
+        "description": "Création d’une identité visuelle et univers pour un bar thématique.",
+        "image": "/portfolio/images_projets/bartheme/desktop_prototype.png",
+        "link": "/portfolio/blog/bartheme/"
     },
     {
-        "title": "Site e-commerce Wordpress refonte",
-        "description": "Une description du projet 3",
-        "image": "/src/assets/images_projets/test.jpg",
-        "link": "#"
+        "title": "Site e‑commerce WordPress",
+        "description": "Prototype d’une boutique dans un univers rétro/pixel.",
+        "image": "/portfolio/images_projets/sae402/prototype.png",
+        "link": "/portfolio/blog/sae402/"
     }
 ]
