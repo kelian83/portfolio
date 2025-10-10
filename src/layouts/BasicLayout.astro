@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import { ViewTransitions } from "astro:transitions";
 const {title} = Astro.props;
 import "../styles/global.css";
 ---
@@ -15,7 +16,7 @@ import "../styles/global.css";
   </head>
   <body>
 	<Nav />
-    <slot />
+    <ViewTransitions><slot /></ViewTransitions>
     <Footer />
   </body>
 </html>
