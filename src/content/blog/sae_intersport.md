@@ -14,7 +14,7 @@ Dans ce projet, nous avons utilisé WordPress pour créer un site e-commerce, en
 Outils utilisés : Wordpress principalement (et Figma pour la conception).
 
 ## Aperçu  
-![Image 1](/portfolio/images_projets/intersport/image1)  
-![Image 2](/portfolio/images_projets/intersport/image2)
-![Image 2](/portfolio/images_projets/intersport/image3)
-![Image 2](/portfolio/images_projets/intersport/image4)
+![Image 1](/portfolio/images_projets/intersport/image1.jpg)  
+![Image 2](/portfolio/images_projets/intersport/image2.jpg)
+![Image 2](/portfolio/images_projets/intersport/image3.jpg)
+![Image 2](/portfolio/images_projets/intersport/image4.jpg)

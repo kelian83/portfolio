@@ -24,5 +24,5 @@ Outils utilisés : Visual Studio Code principalement
 Voici le site réalisé : https://cazeneuve-sae203.mmi-limoges.fr/SAE2.03_surprise/client/
 
 ## Aperçu  
-![Image 1](/portfolio/images_projets/streaming/image1)  
-![Image 2](/portfolio/images_projets/streaming/image2)
+![Image 1](/portfolio/images_projets/streaming/image1.jpg)  
+![Image 2](/portfolio/images_projets/streaming/image2.jpg)
