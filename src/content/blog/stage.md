@@ -8,6 +8,8 @@ heroImage: "/portfolio/images_projets/stage/image_cover.jpg"
 tags: ["Webdesign", "Intégration", "UI/UX design", "Figma", "WordPress"]
 ---
 
+## Missions réalisées lors de mon stage :
+
 #### Refonte du site web communal
 - Audit complet de l’ancien site et création d’une **nouvelle maquette sur Figma**.  
 - Adaptation et intégration via **Neopse** (plateforme web pour collectivités).  
