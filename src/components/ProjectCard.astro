@@ -5,63 +5,97 @@ interface Props {
 	heroImage?: string;
 	tags?: string[];
 	slug: string;
+	pubDate?: Date;
+	featured?: boolean;
 }
 
-const { title, description, heroImage, tags, slug } = Astro.props;
+const { title, description, heroImage, tags, slug, pubDate, featured = false } = Astro.props;
+
+const formattedDate = pubDate
+	? new Intl.DateTimeFormat('fr-FR', { year: 'numeric', month: 'short' }).format(pubDate)
+	: '';
 ---
 
-<a href={`/portfolio/projects/${slug}/`} class="group relative flex flex-col overflow-hidden rounded-2xl border border-emerald-100/60 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-emerald-200">
+<a
+	href={`/portfolio/projects/${slug}/`}
+	class:list={[
+		"project-card group relative flex overflow-hidden rounded-2xl bg-white border border-gray-200/60 shadow-sm transition-all duration-500 hover:shadow-xl hover:border-emerald-300/60 hover:-translate-y-1",
+		featured ? "flex-col md:flex-row md:col-span-2 lg:col-span-3" : "flex-col"
+	]}
+>
 	<!-- Image -->
-	<div class="relative aspect-[16/10] overflow-hidden bg-emerald-50">
+	<div class:list={[
+		"relative overflow-hidden bg-gray-100",
+		featured ? "aspect-[16/9] md:aspect-auto md:w-3/5" : "aspect-[16/10]"
+	]}>
 		{heroImage ? (
 			<img
 				src={heroImage}
-				alt={`Aperçu du projet ${title}`}
-				class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+				alt={`Aperçu — ${title}`}
+				class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
 				loading="lazy"
 			/>
 		) : (
-			<div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-emerald-100 to-emerald-200">
-				<svg class="h-12 w-12 text-emerald-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+			<div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-emerald-50 to-emerald-100">
+				<svg class="h-14 w-14 text-emerald-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
 				</svg>
 			</div>
 		)}
-		<!-- Overlay au hover -->
-		<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+		<!-- Gradient overlay -->
+		<div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+
+		<!-- Date badge -->
+		{formattedDate && (
+			<span class="absolute top-3 left-3 rounded-lg bg-white/90 backdrop-blur-sm px-2.5 py-1 text-[11px] font-semibold text-gray-600 shadow-sm ring-1 ring-black/5">
+				{formattedDate}
+			</span>
+		)}
 	</div>
 
-	<!-- Contenu -->
-	<div class="flex flex-1 flex-col p-5">
-		<h3 class="text-lg font-bold text-gray-900 leading-tight group-hover:text-emerald-700 transition-colors line-clamp-2">
-			{title}
-		</h3>
-		<p class="mt-2 text-sm text-gray-500 leading-relaxed line-clamp-2 flex-1">
-			{description}
-		</p>
+	<!-- Content -->
+	<div class:list={[
+		"flex flex-1 flex-col justify-between p-5",
+		featured ? "md:p-8" : ""
+	]}>
+		<div>
+			<h3 class:list={[
+				"font-bold text-gray-900 leading-snug group-hover:text-emerald-700 transition-colors duration-300",
+				featured ? "text-2xl md:text-3xl" : "text-lg"
+			]}>
+				{title}
+			</h3>
+			<p class:list={[
+				"mt-2 text-gray-500 leading-relaxed",
+				featured ? "text-base line-clamp-3" : "text-sm line-clamp-2"
+			]}>
+				{description}
+			</p>
+		</div>
 
-		<!-- Tags -->
-		{tags && tags.length > 0 && (
-			<ul class="mt-4 flex flex-wrap gap-1.5">
-				{tags.slice(0, 4).map((tag) => (
-					<li class="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-700 ring-1 ring-emerald-200/70">
-						{tag}
-					</li>
-				))}
-				{tags.length > 4 && (
-					<li class="rounded-full bg-gray-100 px-2.5 py-0.5 text-[11px] font-medium text-gray-500">
-						+{tags.length - 4}
-					</li>
-				)}
-			</ul>
-		)}
+		<div class="mt-4 flex items-end justify-between gap-4">
+			<!-- Tags -->
+			{tags && tags.length > 0 && (
+				<ul class="flex flex-wrap gap-1.5">
+					{tags.slice(0, featured ? 5 : 3).map((tag) => (
+						<li class="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-700 ring-1 ring-emerald-200/60 transition-colors group-hover:bg-emerald-100">
+							{tag}
+						</li>
+					))}
+					{tags.length > (featured ? 5 : 3) && (
+						<li class="rounded-full bg-gray-50 px-2.5 py-0.5 text-[11px] font-medium text-gray-400 ring-1 ring-gray-200/60">
+							+{tags.length - (featured ? 5 : 3)}
+						</li>
+					)}
+				</ul>
+			)}
 
-		<!-- CTA discret -->
-		<div class="mt-4 flex items-center gap-1 text-xs font-semibold text-emerald-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-			Voir le projet
-			<svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-			</svg>
+			<!-- Arrow CTA -->
+			<span class="shrink-0 flex items-center justify-center h-9 w-9 rounded-full bg-emerald-50 text-emerald-600 ring-1 ring-emerald-200/60 transition-all duration-300 group-hover:bg-emerald-600 group-hover:text-white group-hover:ring-emerald-600 group-hover:shadow-lg group-hover:shadow-emerald-600/20">
+				<svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+				</svg>
+			</span>
 		</div>
 	</div>
 </a>
