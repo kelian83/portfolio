@@ -1,6 +1,6 @@
 ---
-import BasicLayout from '../layouts/BasicLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import BasicLayout from '../../layouts/BasicLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')).sort(
