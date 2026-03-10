@@ -1,17 +1,19 @@
 ---
 const navItems = [
-    { name: 'Accueil', href: '/portfolio/' },
-    { name: 'Projets', href: '/portfolio/projects/' },
+    { name: 'Accueil', href: '/portfolio/#hero' },
+    { name: 'Projets', href: '/portfolio/#projets' },
+    { name: 'Compétences', href: '/portfolio/#competences' },
+    { name: 'Contact', href: '/portfolio/#contact' },
 ];
 ---
 
-<nav class="sticky top-0 z-50 bg-white/80 supports-[backdrop-filter]:bg-white/40 backdrop-blur-xl backdrop-saturate-150 border-b border-white/40 shadow-sm">
+<nav class="sticky top-0 z-50 bg-white/80 supports-[backdrop-filter]:bg-white/40 backdrop-blur-xl backdrop-saturate-150 border-b border-gray-200/40 shadow-sm">
     <ul class="flex justify-center space-x-8 max-w-6xl px-4 mx-auto py-4">
         {navItems.map(item => (
             <li>
                 <a 
                   href={item.href} 
-                  class="text-gray-900 hover:text-green-600 transition-colors duration-300 text-sm uppercase tracking-wider font-medium"
+                  class="text-gray-600 hover:text-emerald-600 transition-colors duration-300 text-sm uppercase tracking-wider font-medium"
                 >
                   {item.name}
                 </a>

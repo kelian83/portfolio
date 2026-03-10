@@ -5,7 +5,7 @@ description: "Réalisation d'une plateforme de streaming à l'aide de langages t
 pubDate: "2024-03-31"
 
 heroImage: "/portfolio/images_projets/streaming/image_cover.jpg"
-tags: ["Webdesign", "Intégration", "Developpement"]
+tags: ["Design & UI", "Développement Web"]
 ---
 
 ## Contexte & Concept

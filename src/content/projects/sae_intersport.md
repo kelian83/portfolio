@@ -5,7 +5,7 @@ description: "Réalisation d'une plateforme d'e-commerce à l'aide de WordPress.
 pubDate: "2024-10-31"
 
 heroImage: "/portfolio/images_projets/intersport/image_cover.jpg"
-tags: ["Webdesign", "Intégration", "UI/UX design", "Figma", "WordPress"]
+tags: ["Design & UI", "Développement Web"]
 ---
 
 ## Contexte & Concept

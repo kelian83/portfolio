@@ -5,7 +5,7 @@ description: "Moderniser la communication numérique de la commune et améliorer
 pubDate: "2025-06-15"
 
 heroImage: "/portfolio/images_projets/stage/image_cover.jpg"
-tags: ["Webdesign", "Intégration", "UI/UX design", "Figma", "WordPress"]
+tags: ["Design & UI", "Développement Web"]
 ---
 
 ## Missions réalisées lors de mon stage :
