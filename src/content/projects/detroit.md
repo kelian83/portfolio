@@ -2,7 +2,7 @@
 title: "CyberLife App - E-commerce Detroit: Become Human"
 description: "Création d'une application fictive d'achat d'androïdes et d'accessoires plongée dans l'univers du jeu vidéo Detroit: Become Human."
 pubDate: "2024-10-15"
-heroImage: "/portfolio/images_projets/detroit/cyberlife_hero.png"
+heroImage: "/portfolio/images_projets/detroit/cyberlife_hero.jpg"
 tags: ["Design & UI"]
 ---
 
