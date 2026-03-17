@@ -1,7 +1,7 @@
 ---
 title: "Exposition Digitale : La Liberté guidant le peuple"
 description: "Création d'une expérience web minimaliste, interactive et poussée techniquement sur Figma pour mettre en valeur une œuvre d'art classique."
-pubDate: "2024-12-10"
+pubDate: "2024-05-10"
 heroImage: "/portfolio/images_projets/musee/liberte_hero.jpg"
 tags: ["Design & UI"]
 ---
@@ -32,5 +32,7 @@ Ce projet m'a permis de pousser mes compétences Figma à un niveau avancé :
 ![Image 1](/portfolio/images_projets/musee/capture.jpg)
 
 **Découvrir l'expérience :**
+
 👉 [[Lien vers le prototype interactif Figma](https://www.figma.com/proto/xgJDSOQbgIimeebLBoHzS8/Kelian-Cazeneuve---La-libert%C3%A9-guidant-le-peuple--copie-?page-id=15%3A30&node-id=44-121&viewport=-251%2C185%2C0.19&t=0Ksyy3EoDuQ8AANL-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=44%3A121)]
+
 👉 [[Lien vers le fichier Design Figma](https://www.figma.com/design/xgJDSOQbgIimeebLBoHzS8/Kelian-Cazeneuve---La-libert%C3%A9-guidant-le-peuple--copie-?node-id=51-35)]
