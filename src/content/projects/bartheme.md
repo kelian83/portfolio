@@ -42,4 +42,6 @@ Un branding immersif et impactant, reflétant à la fois l’univers de l’esca
 
 🎨 **Outils utilisés** : Illustrator, Photoshop & Figma.
 
+👉 [[Lien vers le fichier Design Figma](https://www.figma.com/proto/YVLJ0YtFsSjD923Vh09d0K/Sa%C3%A9-4.Crea.01---Kelian-Cazeneuve?node-id=146-75&p=f&viewport=478%2C224%2C0.04&t=7lwO5naJnH9As8L1-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=146%3A75&page-id=146%3A2)]
+
 ![Mockup du projet](/portfolio/images_projets/bartheme/desktop_prototype.png)

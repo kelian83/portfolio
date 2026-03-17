@@ -25,11 +25,11 @@ Pour rendre l'immersion totale, j'ai :
 
 ## Aperçu et Liens
 
-*Ci-dessous, quelques captures d'écran de l'interface :*
-![Image 1](/portfolio/images_projets/detroit/design_figma.jpg)  
-
 **Tester l'application :**
 👉 [[Lien vers le prototype interactif Figma](https://www.figma.com/proto/AY2vlcYxyk8hldNCStsfkJ/Kelian-Cazeneuve---Andro%C3%AFd-Shop--backup-?node-id=32-134&p=f&viewport=528%2C134%2C0.08&t=DkG3lNraGeY1inqR-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=32%3A134&show-proto-sidebar=1&page-id=0%3A1)]
 
 **Voir les maquettes :**
 👉 [[Lien vers le fichier Design Figma](https://www.figma.com/design/AY2vlcYxyk8hldNCStsfkJ/Kelian-Cazeneuve---Andro%C3%AFd-Shop--backup-?node-id=0-1&t=GxeNt4A1tjZDE7ux-1)]
+
+*Ci-dessous, quelques captures d'écran de l'interface :*
+![Image 1](/portfolio/images_projets/detroit/design_figma.jpg)
