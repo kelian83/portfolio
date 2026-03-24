@@ -30,5 +30,5 @@ L'expérience est jouable directement dans votre navigateur (au clavier et à la
 
 🔗 **[Tester l'expérience : The Fidelity Loop](https://kelian83.github.io/cube-project/)**
 
-![Image 1](/portfolio/images_projets/severance/capture1.jpg)
-![Image 2](/portfolio/images_projets/severance/capture2.jpg)
+![Image 1](/portfolio/images_projets/severance/capture1.png)
+![Image 2](/portfolio/images_projets/severance/capture2.png)
