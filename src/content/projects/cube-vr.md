@@ -3,7 +3,7 @@ title: "The Fidelity Loop : Severance x Bang & Olufsen"
 description: "Expérience WebVR immersive croisant l'univers angoissant de la série Severance avec l'identité acoustique de Bang & Olufsen."
 pubDate: "2026-01-31"
 heroImage: "/portfolio/images_projets/severance/fidelity_loop_hero.jpg"
-tags: ["WebVR", "A-Frame", "Sound Design", "3D"]
+tags: ["Design & UI", "Développement Web", "Audiovisuel & 3D"]
 ---
 
 ## Le Projet
