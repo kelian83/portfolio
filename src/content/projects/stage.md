@@ -1,5 +1,5 @@
 ---
-title: "Stage à la Mairie de Régusse (Avril – Juin 2025)"
+title: "Stage à la Mairie de Régusse (Avril à Juin 2025)"
 description: "Moderniser la communication numérique de la commune et améliorer l’accès aux démarches administratives en ligne."
 
 pubDate: "2025-06-15"
